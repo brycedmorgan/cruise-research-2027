@@ -359,18 +359,16 @@
             border-radius: 8px;
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            text-align: center;
-            font-size: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        .ship-image::after {
-            content: attr(data-label);
+        .ship-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .ship-image .overlay {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -380,6 +378,7 @@
             padding: 0.5rem;
             font-size: 0.8rem;
             text-align: center;
+            font-weight: 600;
         }
 
         .voting-section {
@@ -576,9 +575,18 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image" data-label="Mini Suite Balcony" style="background: url('https://cdn.cruisecritic.com/images/shipPhotoGallery/norwegian-cruise-line-norwegian-dawn-staterooms-mini-suite-1.jpg') center/cover, linear-gradient(135deg, #FFB347, #FF6B6B); background-blend-mode: overlay;">🛏️ Balcony Suite</div>
-                            <div class="ship-image" data-label="Suite Bathroom" style="background: url('https://cdn.cruisecritic.com/images/shipPhotoGallery/norwegian-cruise-line-norwegian-dawn-staterooms-bathroom-1.jpg') center/cover, linear-gradient(135deg, #87CEEB, #4682B4); background-blend-mode: overlay;">🚿 Suite Bathroom</div>
-                            <div class="ship-image" data-label="Shower Area" style="background: url('https://www.cruisehive.com/wp-content/uploads/2019/06/Norwegian-Dawn-Stateroom-Bathroom.jpg') center/cover, linear-gradient(135deg, #98FB98, #32CD32); background-blend-mode: overlay;">💧 Glass Shower</div>
+                            <div class="ship-image">
+                                <img src="https://images.ctfassets.net/vvyh7mxtm2zt/3jkMEGOE7sYMqM6MMYE2aW/1f3f2e8d5e7f3b2d1a8c9e0f/norwegian-balcony-stateroom.jpg" alt="Norwegian Balcony Suite" onerror="this.src='https://via.placeholder.com/400x300/4A90E2/FFFFFF?text=🛏️+Balcony+Suite'">
+                                <div class="overlay">🛏️ Mini Suite Balcony</div>
+                            </div>
+                            <div class="ship-image">
+                                <img src="https://images.ctfassets.net/vvyh7mxtm2zt/4dkNFHPF8tZNnN7NNZF3bX/2f4f3e9d6e8f4c3d2b9d0e1f/norwegian-bathroom.jpg" alt="Norwegian Bathroom" onerror="this.src='https://via.placeholder.com/400x300/87CEEB/FFFFFF?text=🚿+Suite+Bathroom'">
+                                <div class="overlay">🚿 Suite Bathroom</div>
+                            </div>
+                            <div class="ship-image">
+                                <img src="https://images.ctfassets.net/vvyh7mxtm2zt/5ekOGIQG9uaN1oN8OOAN4cY/3g5g4f0e7f9g5d4e3c0e1f2g/norwegian-shower.jpg" alt="Norwegian Shower" onerror="this.src='https://via.placeholder.com/400x300/98FB98/FFFFFF?text=💧+Glass+Shower'">
+                                <div class="overlay">💧 Glass Shower</div>
+                            </div>
                         </div>
                         
                         <div class="voting-section">
@@ -639,9 +647,18 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image" data-label="Junior Suite" style="background: url('https://www.cruisehive.com/wp-content/uploads/2020/08/Royal-Caribbean-Balcony-Stateroom.jpg') center/cover, linear-gradient(135deg, #DDA0DD, #9370DB); background-blend-mode: overlay;">🏨 Junior Suite</div>
-                            <div class="ship-image" data-label="Modern Bathroom" style="background: url('https://www.cruisehive.com/wp-content/uploads/2020/08/Royal-Caribbean-Bathroom.jpg') center/cover, linear-gradient(135deg, #F0E68C, #DAA520); background-blend-mode: overlay;">✨ Modern Bath</div>
-                            <div class="ship-image" data-label="Glass Shower" style="background: url('https://cdn.cruisecritic.com/images/shipPhotoGallery/royal-caribbean-odyssey-of-the-seas-staterooms-shower.jpg') center/cover, linear-gradient(135deg, #20B2AA, #008B8B); background-blend-mode: overlay;">🚿 Adventure Shower</div>
+                            <div class="ship-image">
+                                <img src="https://via.placeholder.com/400x300/DDA0DD/FFFFFF?text=🏨+Royal+Caribbean+Suite" alt="Royal Caribbean Suite">
+                                <div class="overlay">🏨 Junior Suite</div>
+                            </div>
+                            <div class="ship-image">
+                                <img src="https://via.placeholder.com/400x300/F0E68C/000000?text=✨+Modern+Bathroom" alt="Royal Caribbean Bathroom">
+                                <div class="overlay">✨ Modern Bath</div>
+                            </div>
+                            <div class="ship-image">
+                                <img src="https://via.placeholder.com/400x300/20B2AA/FFFFFF?text=🚿+Glass+Shower" alt="Royal Caribbean Shower">
+                                <div class="overlay">🚿 Adventure Shower</div>
+                            </div>
                         </div>
                         
                         <div class="voting-section">
@@ -701,9 +718,18 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image" data-label="Premium Balcony" style="background: url('https://www.cruisehive.com/wp-content/uploads/2020/02/Princess-Cruises-Balcony-Stateroom.jpg') center/cover, linear-gradient(135deg, #FFB6C1, #FF69B4); background-blend-mode: overlay;">👑 Princess Suite</div>
-                            <div class="ship-image" data-label="Elegant Bathroom" style="background: url('https://cdn.cruisecritic.com/images/shipPhotoGallery/princess-cruises-enchanted-princess-staterooms-bathroom.jpg') center/cover, linear-gradient(135deg, #E6E6FA, #D8BFD8); background-blend-mode: overlay;">🛁 Elegant Bath</div>
-                            <div class="ship-image" data-label="Glass Shower" style="background: url('https://www.cruisehive.com/wp-content/uploads/2019/09/Princess-Cruises-Shower.jpg') center/cover, linear-gradient(135deg, #B0C4DE, #4169E1); background-blend-mode: overlay;">💎 Glass Shower</div>
+                            <div class="ship-image">
+                                <img src="https://via.placeholder.com/400x300/FFB6C1/000000?text=👑+Princess+Balcony" alt="Princess Balcony">
+                                <div class="overlay">👑 Premium Balcony</div>
+                            </div>
+                            <div class="ship-image">
+                                <img src="https://via.placeholder.com/400x300/E6E6FA/000000?text=🛁+Elegant+Bathroom" alt="Princess Bathroom">
+                                <div class="overlay">🛁 Elegant Bath</div>
+                            </div>
+                            <div class="ship-image">
+                                <img src="https://via.placeholder.com/400x300/B0C4DE/000000?text=💎+Glass+Shower" alt="Princess Shower">
+                                <div class="overlay">💎 Glass Shower</div>
+                            </div>
                         </div>
                         
                         <div class="voting-section">
@@ -764,9 +790,18 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image" data-label="Aqua Class Veranda" style="background: url('https://www.cruisehive.com/wp-content/uploads/2021/03/Celebrity-Cruises-Veranda-Stateroom.jpg') center/cover, linear-gradient(135deg, #00CED1, #008080); background-blend-mode: overlay;">🌊 Aqua Class</div>
-                            <div class="ship-image" data-label="Spa-Style Bathroom" style="background: url('https://cdn.cruisecritic.com/images/shipPhotoGallery/celebrity-cruises-celebrity-ascent-staterooms-bathroom.jpg') center/cover, linear-gradient(135deg, #F5DEB3, #D2B48C); background-blend-mode: overlay;">🧖‍♀️ Spa Bathroom</div>
-                            <div class="ship-image" data-label="Rainfall Shower" style="background: url('https://www.cruisehive.com/wp-content/uploads/2020/05/Celebrity-Cruises-Bathroom-Shower.jpg') center/cover, linear-gradient(135deg, #87CEFA, #4682B4); background-blend-mode: overlay;">☔ Rainfall Heaven</div>
+                            <div class="ship-image">
+                                <img src="https://via.placeholder.com/400x300/00CED1/FFFFFF?text=🌊+Aqua+Class+Veranda" alt="Celebrity Aqua Class">
+                                <div class="overlay">🌊 Aqua Class</div>
+                            </div>
+                            <div class="ship-image">
+                                <img src="https://via.placeholder.com/400x300/F5DEB3/000000?text=🧖‍♀️+Spa+Bathroom" alt="Celebrity Spa Bathroom">
+                                <div class="overlay">🧖‍♀️ Spa Bathroom</div>
+                            </div>
+                            <div class="ship-image">
+                                <img src="https://via.placeholder.com/400x300/87CEFA/000000?text=☔+Rainfall+Shower" alt="Celebrity Rainfall Shower">
+                                <div class="overlay">☔ Rainfall Heaven</div>
+                            </div>
                         </div>
                         
                         <div class="voting-section">
@@ -827,9 +862,18 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image" data-label="Concierge Level Veranda" style="background: url('https://www.cruisehive.com/wp-content/uploads/2020/04/Oceania-Cruises-Veranda-Stateroom.jpg') center/cover, linear-gradient(135deg, #FFD700, #FFA500); background-blend-mode: overlay;">🏖️ Veranda Suite</div>
-                            <div class="ship-image" data-label="Marble Bathroom" style="background: url('https://cdn.cruisecritic.com/images/shipPhotoGallery/oceania-cruises-nautica-staterooms-bathroom-marble.jpg') center/cover, linear-gradient(135deg, #F8F8FF, #E0E0E0); background-blend-mode: overlay;">🏛️ Marble Luxury</div>
-                            <div class="ship-image" data-label="Oversized Shower" style="background: url('https://www.cruisehive.com/wp-content/uploads/2019/12/Oceania-Cruises-Shower.jpg') center/cover, linear-gradient(135deg, #AFEEEE, #5F9EA0); background-blend-mode: overlay;">💎 Oversized Shower</div>
+                            <div class="ship-image">
+                                <img src="https://via.placeholder.com/400x300/FFD700/000000?text=🏖️+Oceania+Veranda" alt="Oceania Veranda">
+                                <div class="overlay">🏖️ Veranda Suite</div>
+                            </div>
+                            <div class="ship-image">
+                                <img src="https://via.placeholder.com/400x300/F8F8FF/000000?text=🏛️+Marble+Bathroom" alt="Oceania Marble Bathroom">
+                                <div class="overlay">🏛️ Marble Luxury</div>
+                            </div>
+                            <div class="ship-image">
+                                <img src="https://via.placeholder.com/400x300/AFEEEE/000000?text=💎+Luxury+Shower" alt="Oceania Shower">
+                                <div class="overlay">💎 Oversized Shower</div>
+                            </div>
                         </div>
                         
                         <div class="voting-section">
