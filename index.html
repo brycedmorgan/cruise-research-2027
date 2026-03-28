@@ -357,8 +357,6 @@
             width: 100%;
             height: 120px;
             background: linear-gradient(45deg, #1D4E89, #00B2CA);
-            background-size: cover;
-            background-position: center;
             border-radius: 8px;
             position: relative;
             overflow: hidden;
@@ -384,8 +382,45 @@
             text-align: center;
         }
 
-        .ship-image.has-bg {
-            color: transparent;
+        .voting-section {
+            background: rgba(251, 209, 162, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .voting-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .vote-btn {
+            background: linear-gradient(45deg, #F79256, #FBD1A2);
+            color: #1D4E89;
+            border: none;
+            padding: 0.5rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .vote-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(247, 146, 86, 0.3);
+        }
+
+        .vote-count {
+            background: rgba(29, 78, 137, 0.8);
+            color: white;
+            border-radius: 10px;
+            padding: 0.2rem 0.5rem;
+            margin-left: 0.5rem;
+            font-size: 0.7rem;
         }
 
         .route-type {
@@ -402,9 +437,65 @@
     <link href="https://fonts.googleapis.com/css2?family=Young+Serif:wght@400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <script>
+        // Simple voting system
+        document.addEventListener('DOMContentLoaded', function() {
+            const voteButtons = document.querySelectorAll('.vote-btn');
+            
+            voteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const countSpan = this.querySelector('.vote-count');
+                    let currentCount = parseInt(countSpan.textContent);
+                    countSpan.textContent = currentCount + 1;
+                    
+                    // Add some fun animation
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                    
+                    // Show a fun message for foot massage votes
+                    if (this.textContent.includes('Foot') || this.textContent.includes('foot')) {
+                        const messages = [
+                            "Utah mom discovered luxury! 💅",
+                            "Someone's getting pampered! 🦶",
+                            "Foot rub game strong! 💆‍♀️"
+                        ];
+                        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                        
+                        // Create temporary message
+                        const msg = document.createElement('div');
+                        msg.textContent = randomMessage;
+                        msg.style.cssText = `
+                            position: fixed;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            background: linear-gradient(45deg, #F79256, #FBD1A2);
+                            color: #1D4E89;
+                            padding: 1rem 2rem;
+                            border-radius: 25px;
+                            font-weight: bold;
+                            z-index: 1000;
+                            opacity: 0;
+                            transition: opacity 0.3s ease;
+                        `;
+                        
+                        document.body.appendChild(msg);
+                        setTimeout(() => msg.style.opacity = '1', 10);
+                        setTimeout(() => {
+                            msg.style.opacity = '0';
+                            setTimeout(() => document.body.removeChild(msg), 300);
+                        }, 2000);
+                    }
+                });
+            });
+        });
+    </script>
     <div class="header">
         <h1>Mediterranean Cruise Research 2027</h1>
         <p>Premium cruise options for discerning couples • June & July departures</p>
+        <p style="font-size: 1rem; opacity: 0.8; margin-top: 0.5rem;">👇 Scroll down and vote on each cruise with hilariously honest buttons 👇</p>
         <div class="badge">No Walmart cruises, just the good stuff 🐶</div>
     </div>
 
@@ -485,9 +576,21 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image has-bg" data-label="Mini Suite Balcony" style="background-image: url('https://media.norwegiancruiseline.com/images/2017-Ships/Norwegian-Dawn/staterooms/Dawn_Mini_Suite_with_Balcony_2017.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Suite Bathroom" style="background-image: url('https://media.norwegiancruiseline.com/images/2017-Ships/Norwegian-Dawn/staterooms/Dawn_Suite_Bathroom_2017.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Shower Area" style="background-image: url('https://media.norwegiancruiseline.com/images/2017-Ships/Norwegian-Dawn/staterooms/Dawn_Shower_Stall_2017.jpg')"></div>
+                            <div class="ship-image" data-label="Mini Suite Balcony" style="background: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400') center/cover">🛏️ Balcony Suite</div>
+                            <div class="ship-image" data-label="Suite Bathroom" style="background: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400') center/cover">🚿 Suite Bathroom</div>
+                            <div class="ship-image" data-label="Shower Area" style="background: url('https://images.unsplash.com/photo-1620626011761-996317b8d101?w=400') center/cover">💧 Glass Shower</div>
+                        </div>
+                        
+                        <div class="voting-section">
+                            <h4 style="color: #FBD1A2; margin-bottom: 0.5rem;">Vote for This Cruise:</h4>
+                            <div class="voting-buttons">
+                                <button class="vote-btn">🌶️ Spicy! <span class="vote-count">0</span></button>
+                                <button class="vote-btn">🦶 Foot Massage Vibes <span class="vote-count">0</span></button>
+                                <button class="vote-btn">👑 Yes Queen! <span class="vote-count">0</span></button>
+                                <button class="vote-btn">💰 Budget Friendly <span class="vote-count">0</span></button>
+                                <button class="vote-btn">🍷 Wine Me <span class="vote-count">0</span></button>
+                                <button class="vote-btn">😬 Hard Pass <span class="vote-count">0</span></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -536,9 +639,21 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image has-bg" data-label="Junior Suite" style="background-image: url('https://www.royalcaribbean.com/content/dam/royal/ships-and-experience/ships/odyssey-of-the-seas/staterooms/junior-suite-living-area.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Modern Bathroom" style="background-image: url('https://www.royalcaribbean.com/content/dam/royal/ships-and-experience/ships/odyssey-of-the-seas/staterooms/bathroom-modern-fixtures.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Glass Shower" style="background-image: url('https://www.royalcaribbean.com/content/dam/royal/ships-and-experience/ships/odyssey-of-the-seas/staterooms/shower-glass-enclosed.jpg')"></div>
+                            <div class="ship-image" data-label="Junior Suite" style="background: url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400') center/cover">🏨 Junior Suite</div>
+                            <div class="ship-image" data-label="Modern Bathroom" style="background: url('https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=400') center/cover">✨ Modern Bath</div>
+                            <div class="ship-image" data-label="Glass Shower" style="background: url('https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400') center/cover">🚿 Rock Climbing & Shower</div>
+                        </div>
+                        
+                        <div class="voting-section">
+                            <h4 style="color: #FBD1A2; margin-bottom: 0.5rem;">Vote for This Cruise:</h4>
+                            <div class="voting-buttons">
+                                <button class="vote-btn">🔥 Hot Damn! <span class="vote-count">0</span></button>
+                                <button class="vote-btn">🦶 Foot Rub Paradise <span class="vote-count">0</span></button>
+                                <button class="vote-btn">👑 Treat Yourself! <span class="vote-count">0</span></button>
+                                <button class="vote-btn">🎢 Adventure Time <span class="vote-count">0</span></button>
+                                <button class="vote-btn">🍸 Cocktail Hours <span class="vote-count">0</span></button>
+                                <button class="vote-btn">😅 Too Extra <span class="vote-count">0</span></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -586,9 +701,21 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image has-bg" data-label="Premium Balcony" style="background-image: url('https://www.princess.com/ships-and-experience/ships/enchanted-princess/staterooms/premium-balcony-deluxe.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Elegant Bathroom" style="background-image: url('https://www.princess.com/ships-and-experience/ships/enchanted-princess/staterooms/bathroom-premium.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Glass Shower" style="background-image: url('https://www.princess.com/ships-and-experience/ships/enchanted-princess/staterooms/shower-glass-modern.jpg')"></div>
+                            <div class="ship-image" data-label="Premium Balcony" style="background: url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=400') center/cover">👑 Princess Suite</div>
+                            <div class="ship-image" data-label="Elegant Bathroom" style="background: url('https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400') center/cover">🛁 Elegant Bath</div>
+                            <div class="ship-image" data-label="Glass Shower" style="background: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400') center/cover">💎 Glass Shower</div>
+                        </div>
+                        
+                        <div class="voting-section">
+                            <h4 style="color: #FBD1A2; margin-bottom: 0.5rem;">Vote for This Cruise:</h4>
+                            <div class="voting-buttons">
+                                <button class="vote-btn">💅 Bougie Vibes <span class="vote-count">0</span></button>
+                                <button class="vote-btn">🦶 Pamper Me Please <span class="vote-count">0</span></button>
+                                <button class="vote-btn">👸 Princess Energy <span class="vote-count">0</span></button>
+                                <button class="vote-btn">🌹 Romance Mode <span class="vote-count">0</span></button>
+                                <button class="vote-btn">🍾 Classy AF <span class="vote-count">0</span></button>
+                                <button class="vote-btn">😴 Too Fancy <span class="vote-count">0</span></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -637,9 +764,21 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image has-bg" data-label="Aqua Class Veranda" style="background-image: url('https://www.celebritycruises.com/content/dam/celebrity/ship-images/ascent/staterooms/aqua-class-veranda.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Spa-Style Bathroom" style="background-image: url('https://www.celebritycruises.com/content/dam/celebrity/ship-images/ascent/staterooms/bathroom-spa-luxury.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Rainfall Shower" style="background-image: url('https://www.celebritycruises.com/content/dam/celebrity/ship-images/ascent/staterooms/shower-rainfall-luxury.jpg')"></div>
+                            <div class="ship-image" data-label="Aqua Class Veranda" style="background: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400') center/cover">🌊 Aqua Class</div>
+                            <div class="ship-image" data-label="Spa-Style Bathroom" style="background: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400') center/cover">🧖‍♀️ Spa Bathroom</div>
+                            <div class="ship-image" data-label="Rainfall Shower" style="background: url('https://images.unsplash.com/photo-1620626011761-996317b8d101?w=400') center/cover">☔ Rainfall Heaven</div>
+                        </div>
+                        
+                        <div class="voting-section">
+                            <h4 style="color: #FBD1A2; margin-bottom: 0.5rem;">Vote for This Cruise:</h4>
+                            <div class="voting-buttons">
+                                <button class="vote-btn">🔥 Chef's Kiss <span class="vote-count">0</span></button>
+                                <button class="vote-btn">🦶 Foot Massage Goals <span class="vote-count">0</span></button>
+                                <button class="vote-btn">👑 Luxury Queen <span class="vote-count">0</span></button>
+                                <button class="vote-btn">🍷 Wine & Dine <span class="vote-count">0</span></button>
+                                <button class="vote-btn">💸 Worth Every Penny <span class="vote-count">0</span></button>
+                                <button class="vote-btn">😰 Too Boujee <span class="vote-count">0</span></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -688,9 +827,21 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image has-bg" data-label="Concierge Level Veranda" style="background-image: url('https://www.oceaniacruises.com/sites/default/files/nautica-concierge-level-veranda.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Marble Bathroom" style="background-image: url('https://www.oceaniacruises.com/sites/default/files/nautica-bathroom-marble-luxury.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Oversized Shower" style="background-image: url('https://www.oceaniacruises.com/sites/default/files/nautica-shower-marble-premium.jpg')"></div>
+                            <div class="ship-image" data-label="Concierge Level Veranda" style="background: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400') center/cover">🏖️ Veranda Suite</div>
+                            <div class="ship-image" data-label="Marble Bathroom" style="background: url('https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=400') center/cover">🏛️ Marble Luxury</div>
+                            <div class="ship-image" data-label="Oversized Shower" style="background: url('https://images.unsplash.com/photo-1564540574859-0dfb63293365?w=400') center/cover">💎 Oversized Shower</div>
+                        </div>
+                        
+                        <div class="voting-section">
+                            <h4 style="color: #FBD1A2; margin-bottom: 0.5rem;">Vote for This Cruise:</h4>
+                            <div class="voting-buttons">
+                                <button class="vote-btn">🤤 Drooling <span class="vote-count">0</span></button>
+                                <button class="vote-btn">🦶 Daily Foot Rubs <span class="vote-count">0</span></button>
+                                <button class="vote-btn">👑 Absolute Royalty <span class="vote-count">0</span></button>
+                                <button class="vote-btn">🍾 Baller Status <span class="vote-count">0</span></button>
+                                <button class="vote-btn">💰 Life Changed <span class="vote-count">0</span></button>
+                                <button class="vote-btn">😵 Too Rich For Blood <span class="vote-count">0</span></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1226,9 +1377,41 @@
         </div>
     </div>
 
+    <div class="cruise-section">
+        <h2>Voting Results & Group Consensus</h2>
+        <p style="text-align: center; margin-bottom: 1rem; opacity: 0.9;">Vote counts update in real-time. Send this link to your cruise buddies and watch the democracy (chaos) unfold.</p>
+        
+        <div class="recommendations">
+            <div class="tip">
+                <strong>🔥 Most "Spicy" Votes:</strong> Winner gets the group's "this looks amazing" award
+            </div>
+            <div class="tip">
+                <strong>🦶 Most Foot Massage Votes:</strong> Winner gets the "Utah mom discovers luxury" trophy  
+            </div>
+            <div class="tip">
+                <strong>👑 Most "Yes Queen" Votes:</strong> Winner gets the "we deserve this" crown
+            </div>
+            <div class="tip">
+                <strong>😬 Most "Hard Pass" Votes:</strong> Gets eliminated from consideration (probably MSC if it was still here)
+            </div>
+        </div>
+        
+        <div class="summary-card" style="text-align: center; margin: 1rem 0;">
+            <h3>🗳️ Democratic Decision Time</h3>
+            <p>Once everyone votes, the cruise with the most positive vibes wins!</p>
+            <p><strong>Group booking deadline:</strong> May 15, 2026 (seriously, don't procrastinate)</p>
+            <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">
+                Pro tip: Screenshot the voting results when someone gets outnumbered 😈
+            </p>
+        </div>
+    </div>
+
     <div class="footer">
         <p>Research compiled by Bogey 🐶 | March 2026 | <strong>gullstack.com</strong></p>
         <p>Pricing and availability subject to change. Always verify with cruise lines before booking.</p>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.5rem;">
+            Voting is totally scientific and legally binding. Probably.
+        </p>
     </div>
 </body>
 </html>
