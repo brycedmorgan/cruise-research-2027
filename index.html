@@ -246,13 +246,18 @@
             border-radius: 5px;
         }
 
+        .comparison-scroll {
+            width: 100%;
+            overflow-x: auto;
+            margin: 2rem 0;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
         .comparison-table {
             width: 100%;
-            margin: 2rem 0;
+            min-width: 800px;
             border-collapse: collapse;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
         }
 
         .comparison-table th,
@@ -260,12 +265,42 @@
             padding: 1rem;
             text-align: left;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            white-space: nowrap;
         }
 
         .comparison-table th {
             background: rgba(251, 209, 162, 0.2);
             color: #FBD1A2;
             font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+
+        .cruise-line-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .cruise-line-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(125, 207, 182, 0.3);
+        }
+
+        .cruise-line-card h4 {
+            color: #FBD1A2;
+            margin-bottom: 0.5rem;
+            font-family: 'Young Serif', serif;
+        }
+
+        .cruise-line-card .price-range {
+            color: #F79256;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
 
         .footer {
@@ -309,11 +344,19 @@
         .ship-image {
             width: 100%;
             height: 120px;
+            background: linear-gradient(45deg, #1D4E89, #00B2CA);
             background-size: cover;
             background-position: center;
             border-radius: 8px;
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.9rem;
         }
 
         .ship-image::after {
@@ -327,6 +370,10 @@
             padding: 0.5rem;
             font-size: 0.8rem;
             text-align: center;
+        }
+
+        .ship-image.has-bg {
+            color: transparent;
         }
 
         .route-type {
@@ -345,8 +392,8 @@
 <body>
     <div class="header">
         <h1>Mediterranean Cruise Research 2027</h1>
-        <p>Comprehensive analysis for 4 couples • June & July departures</p>
-        <div class="badge">Research completed by Bogey 🐶</div>
+        <p>Premium cruise options for discerning couples • June & July departures</p>
+        <div class="badge">No Walmart cruises, just the good stuff 🐶</div>
     </div>
 
     <div class="container">
@@ -425,9 +472,9 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image" data-label="Ship Atrium" style="background-image: url('https://media.norwegiancruiseline.com/images/2017-Ships/Norwegian-Dawn/exterior/Norwegian_Dawn_2017_aerial_03.jpg')"></div>
-                            <div class="ship-image" data-label="Specialty Dining" style="background-image: url('https://media.norwegiancruiseline.com/images/2017-Ships/Norwegian-Dawn/restaurants/Dawn_Cagney_s_Steakhouse_2017.jpg')"></div>
-                            <div class="ship-image" data-label="Entertainment" style="background-image: url('https://media.norwegiancruiseline.com/images/2017-Ships/Norwegian-Dawn/entertainment/Norwegian_Dawn_Stardust_Theater_2017.jpg')"></div>
+                            <div class="ship-image" data-label="Ship Exterior">⚓ Modern Design</div>
+                            <div class="ship-image" data-label="Specialty Dining">🍽️ 20+ Restaurants</div>
+                            <div class="ship-image" data-label="Entertainment">🎭 Broadway Shows</div>
                         </div>
                     </div>
                 </div>
@@ -475,9 +522,9 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image" data-label="Two-level Pools" style="background-image: url('https://www.royalcaribbean.com/content/dam/royal/ships-and-experience/ships/odyssey-of-the-seas/activities/odyssey-of-the-seas-main-pool.jpg')"></div>
-                            <div class="ship-image" data-label="Specialty Restaurants" style="background-image: url('https://www.royalcaribbean.com/content/dam/royal/ships-and-experience/ships/odyssey-of-the-seas/dining/odyssey-of-the-seas-giovannis-restaurant.jpg')"></div>
-                            <div class="ship-image" data-label="SeaPlex Sports" style="background-image: url('https://www.royalcaribbean.com/content/dam/royal/ships-and-experience/ships/odyssey-of-the-seas/activities/odyssey-of-the-seas-seaplex.jpg')"></div>
+                            <div class="ship-image" data-label="Two-level Pools">🏊‍♂️ Pool Complex</div>
+                            <div class="ship-image" data-label="Specialty Restaurants">🇮🇹 Giovanni's Italian</div>
+                            <div class="ship-image" data-label="SeaPlex Sports">⚽ Sports Complex</div>
                         </div>
                     </div>
                 </div>
@@ -524,9 +571,9 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image" data-label="Princess Theater" style="background-image: url('https://d2xnkjysn6lg7q.cloudfront.net/cruise-ship-images/princess/enchanted-princess/enchanted-princess-theater.jpg')"></div>
-                            <div class="ship-image" data-label="Sanctuary Adults-Only" style="background-image: url('https://d2xnkjysn6lg7q.cloudfront.net/cruise-ship-images/princess/enchanted-princess/enchanted-princess-sanctuary.jpg')"></div>
-                            <div class="ship-image" data-label="Piazza Atrium" style="background-image: url('https://d2xnkjysn6lg7q.cloudfront.net/cruise-ship-images/princess/enchanted-princess/enchanted-princess-piazza.jpg')"></div>
+                            <div class="ship-image" data-label="Princess Theater">🎭 Live Shows</div>
+                            <div class="ship-image" data-label="Sanctuary Adults-Only">🧘‍♀️ Adult Retreat</div>
+                            <div class="ship-image" data-label="Piazza Atrium">☕ Elegant Atrium</div>
                         </div>
                     </div>
                 </div>
@@ -574,9 +621,9 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image" data-label="Le Voyage Restaurant" style="background-image: url('https://www.celebritycruises.com/content/dam/celebrity/ship-images/ascent/dining/celebrity-ascent-le-voyage.jpg')"></div>
-                            <div class="ship-image" data-label="Art Gallery" style="background-image: url('https://www.celebritycruises.com/content/dam/celebrity/ship-images/ascent/amenities/celebrity-ascent-art-gallery.jpg')"></div>
-                            <div class="ship-image" data-label="Casino" style="background-image: url('https://www.celebritycruises.com/content/dam/celebrity/ship-images/ascent/entertainment/celebrity-ascent-casino.jpg')"></div>
+                            <div class="ship-image" data-label="Le Voyage Restaurant">👨‍🍳 Michelin-Quality</div>
+                            <div class="ship-image" data-label="Art Gallery">🎨 Contemporary Art</div>
+                            <div class="ship-image" data-label="Casino">🎰 Elegant Gaming</div>
                         </div>
                     </div>
                 </div>
@@ -624,9 +671,9 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image" data-label="Gourmet Dining" style="background-image: url('https://www.oceaniacruises.com/content/media-assets/ship/nautica/nautica-grand-dining-room.jpg')"></div>
-                            <div class="ship-image" data-label="Library" style="background-image: url('https://www.oceaniacruises.com/content/media-assets/ship/nautica/nautica-library.jpg')"></div>
-                            <div class="ship-image" data-label="Observatory Deck" style="background-image: url('https://www.oceaniacruises.com/content/media-assets/ship/nautica/nautica-pool-deck.jpg')"></div>
+                            <div class="ship-image" data-label="Gourmet Dining">🍾 Fine Dining</div>
+                            <div class="ship-image" data-label="Library">📚 Quiet Luxury</div>
+                            <div class="ship-image" data-label="Observatory Deck">🌅 Panoramic Views</div>
                         </div>
                     </div>
                 </div>
@@ -680,9 +727,9 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image" data-label="Epic Theater" style="background-image: url('https://media.norwegiancruiseline.com/images/2010-Ships/Norwegian-Epic/entertainment/Norwegian_Epic_Epic_Theater_2010.jpg')"></div>
-                            <div class="ship-image" data-label="Aqua Park" style="background-image: url('https://media.norwegiancruiseline.com/images/2010-Ships/Norwegian-Epic/pools/Norwegian_Epic_Aqua_Park_2010.jpg')"></div>
-                            <div class="ship-image" data-label="Bowling Alley" style="background-image: url('https://media.norwegiancruiseline.com/images/2010-Ships/Norwegian-Epic/activities/Norwegian_Epic_Bowling_2010.jpg')"></div>
+                            <div class="ship-image" data-label="Epic Theater">🎭 Epic Productions</div>
+                            <div class="ship-image" data-label="Aqua Park">🌊 Water Features</div>
+                            <div class="ship-image" data-label="Bowling Alley">🎳 Onboard Bowling</div>
                         </div>
                     </div>
                 </div>
@@ -730,9 +777,9 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image" data-label="Central Park" style="background-image: url('https://www.royalcaribbean.com/content/dam/royal/ships-and-experience/ships/allure-of-the-seas/exterior/allure-of-the-seas-central-park.jpg')"></div>
-                            <div class="ship-image" data-label="Boardwalk" style="background-image: url('https://www.royalcaribbean.com/content/dam/royal/ships-and-experience/ships/allure-of-the-seas/exterior/allure-of-the-seas-boardwalk.jpg')"></div>
-                            <div class="ship-image" data-label="AquaTheater" style="background-image: url('https://www.royalcaribbean.com/content/dam/royal/ships-and-experience/ships/allure-of-the-seas/entertainment/allure-of-the-seas-aqua-theater.jpg')"></div>
+                            <div class="ship-image" data-label="Central Park">🌳 Living Plants</div>
+                            <div class="ship-image" data-label="Boardwalk">🎠 Carousel & Shops</div>
+                            <div class="ship-image" data-label="AquaTheater">🤸‍♂️ Aqua Shows</div>
                         </div>
                     </div>
                 </div>
@@ -774,86 +821,79 @@
 
         <!-- Cruise Line Comparison -->
         <div class="cruise-section">
-            <h2>Cruise Line Comparison</h2>
+            <h2>Quality Cruise Lines Only</h2>
+            <p style="text-align: center; margin-bottom: 2rem; opacity: 0.9;">These aren't your basic cafeteria ships. Think Target vs. Walmart, but for floating hotels with amazing food and service that'll make Utah moms discover they actually DO deserve to be pampered.</p>
             
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Cruise Line</th>
-                        <th>Style</th>
-                        <th>Price Range</th>
-                        <th>Best For</th>
-                        <th>Dining</th>
-                        <th>Entertainment</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Norwegian</strong></td>
-                        <td>Freestyle cruising</td>
-                        <td>$1,209 - $1,659</td>
-                        <td>Casual, flexible dining</td>
-                        <td>20+ restaurants</td>
-                        <td>Broadway shows</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Princess</strong></td>
-                        <td>Traditional premium</td>
-                        <td>$1,114 - $1,695</td>
-                        <td>Mature cruisers, romance</td>
-                        <td>Chef's Table experiences</td>
-                        <td>Production shows</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Royal Caribbean</strong></td>
-                        <td>Adventure focused</td>
-                        <td>$1,875 - $2,895</td>
-                        <td>Active families</td>
-                        <td>Central Park restaurants</td>
-                        <td>AquaTheater, rock climbing</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Celebrity</strong></td>
-                        <td>Modern luxury</td>
-                        <td>$2,248 - $2,995</td>
-                        <td>Food & wine lovers</td>
-                        <td>Daniel Boulud restaurants</td>
-                        <td>Live music, art</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Oceania</strong></td>
-                        <td>Destination focused</td>
-                        <td>$3,285 - $4,695</td>
-                        <td>Culinary enthusiasts</td>
-                        <td>Finest cuisine at sea</td>
-                        <td>Enrichment programs</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="cruise-line-cards">
+                <div class="cruise-line-card">
+                    <h4>🚢 Norwegian</h4>
+                    <div class="price-range">$1,209 - $1,659 PP</div>
+                    <p><strong>Style:</strong> Freestyle cruising</p>
+                    <p><strong>Best for:</strong> Casual elegance, flexible dining times</p>
+                    <p><strong>Food:</strong> 20+ restaurants, Broadway-caliber shows</p>
+                    <p><strong>Vibe:</strong> "I can eat dinner at 9pm in my nice jeans and feel fancy"</p>
+                </div>
+                
+                <div class="cruise-line-card">
+                    <h4>👑 Princess</h4>
+                    <div class="price-range">$1,114 - $1,695 PP</div>
+                    <p><strong>Style:</strong> Traditional premium elegance</p>
+                    <p><strong>Best for:</strong> Adults who want romance without screaming kids</p>
+                    <p><strong>Food:</strong> Chef's Table experiences, proper afternoon tea</p>
+                    <p><strong>Vibe:</strong> "This is what a real cruise should feel like"</p>
+                </div>
+                
+                <div class="cruise-line-card">
+                    <h4>⚓ Royal Caribbean</h4>
+                    <div class="price-range">$1,875 - $2,895 PP</div>
+                    <p><strong>Style:</strong> Adventure meets luxury</p>
+                    <p><strong>Best for:</strong> Active couples who want options</p>
+                    <p><strong>Food:</strong> Central Park restaurants, specialty dining</p>
+                    <p><strong>Vibe:</strong> "We're active AND fancy - rock climbing then champagne"</p>
+                </div>
+                
+                <div class="cruise-line-card">
+                    <h4>✨ Celebrity</h4>
+                    <div class="price-range">$2,248 - $2,995 PP</div>
+                    <p><strong>Style:</strong> Modern luxury with culinary focus</p>
+                    <p><strong>Best for:</strong> Foodies who appreciate the finer things</p>
+                    <p><strong>Food:</strong> Daniel Boulud restaurants, wine tastings</p>
+                    <p><strong>Vibe:</strong> "I'm getting a foot massage AND a michelin-quality meal"</p>
+                </div>
+                
+                <div class="cruise-line-card">
+                    <h4>🍾 Oceania</h4>
+                    <div class="price-range">$3,285 - $4,695 PP</div>
+                    <p><strong>Style:</strong> Small ship luxury, destination-focused</p>
+                    <p><strong>Best for:</strong> Culinary enthusiasts, intimate atmosphere</p>
+                    <p><strong>Food:</strong> Literally the best cuisine at sea, included gratuities</p>
+                    <p><strong>Vibe:</strong> "I'm basically on a floating 5-star resort"</p>
+                </div>
+            </div>
         </div>
 
         <!-- Booking Recommendations -->
         <div class="recommendations">
-            <h3>🎯 Bogey's Recommendations</h3>
+            <h3>🎯 Bogey's No-BS Recommendations</h3>
             
             <div class="tip">
-                <strong>Best Overall Value:</strong> Norwegian Dawn from Barcelona - $1,209 PP for inside cabins. Solid Western Med itinerary, freestyle cruising, good service without the cafeteria feel.
+                <strong>Best Bang for Your Buck:</strong> Norwegian Dawn from Barcelona - $1,209 PP inside cabins. You'll feel fancy without breaking the bank. Perfect for couples who want flexibility and don't need to impress the neighbors back home.
             </div>
             
             <div class="tip">
-                <strong>Premium Choice:</strong> Princess Enchanted from Rome - $1,114 PP inside. Traditional elegance, adult-focused atmosphere, excellent service. No kids running around screaming.
+                <strong>The Sweet Spot:</strong> Princess Enchanted from Rome - $1,114 PP inside. Classy without being stuffy. Fewer screaming kids, more couples actually talking to each other over dinner. Utah mom approved.
             </div>
             
             <div class="tip">
-                <strong>Premium Pick:</strong> Celebrity Ascent (10 nights) - $2,448 PP oceanview. Italy/Greece/Croatia in one cruise, elevated dining and service.
+                <strong>Go Big or Go Home:</strong> Celebrity Ascent (10 nights) - $2,448 PP oceanview. This is where Utah moms discover they actually DO deserve to be pampered. Italy/Greece/Croatia + foot massages = life changed forever.
             </div>
             
             <div class="tip">
-                <strong>One-Way Option:</strong> Oceania Nautica (Istanbul to Rome) - Luxury small ship experience, unique ports. $3,285 PP but includes gratuities and some beverages.
+                <strong>Baller Status:</strong> Oceania Nautica (Istanbul to Rome) - $3,285 PP but includes gratuities and drinks. Small ship luxury where the biggest decision is which amazing restaurant to try tonight. You'll come home spoiled for life.
             </div>
             
             <div class="tip">
-                <strong>Book by:</strong> May 2026 for best cabin selection and pricing. Mediterranean cruises book fastest for summer departures.
+                <strong>Real Talk:</strong> Book by May 2026 or kiss the good cabins goodbye. Mediterranean summer cruises sell out to people who actually know what they're doing. Don't be the couple stuck with the cabin next to the elevator.
             </div>
         </div>
 
