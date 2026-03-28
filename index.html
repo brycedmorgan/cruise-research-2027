@@ -55,20 +55,20 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem;
         }
 
         .summary-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .summary-card {
             background: rgba(125, 207, 182, 0.15);
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 1rem;
+            border-radius: 10px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(125, 207, 182, 0.3);
         }
@@ -82,27 +82,27 @@
 
         .cruise-section {
             background: rgba(0, 178, 202, 0.1);
-            margin: 2rem 0;
-            padding: 2.5rem;
-            border-radius: 20px;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            border-radius: 15px;
             backdrop-filter: blur(15px);
             border: 1px solid rgba(0, 178, 202, 0.2);
         }
 
         .cruise-section h2 {
             font-family: 'Young Serif', serif;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+            font-size: 2rem;
+            margin-bottom: 1rem;
             color: #FBD1A2;
             border-bottom: 2px solid rgba(251, 209, 162, 0.3);
-            padding-bottom: 0.5rem;
+            padding-bottom: 0.3rem;
         }
 
         .cruise-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
         .cruise-card {
@@ -121,9 +121,21 @@
 
         .cruise-header {
             background: linear-gradient(45deg, rgba(247, 146, 86, 0.9), rgba(251, 209, 162, 0.9));
-            padding: 1.5rem;
+            padding: 1rem;
             text-align: center;
             color: #1D4E89;
+            position: relative;
+        }
+
+        .cruise-logo {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            width: 60px;
+            height: 30px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
         .cruise-header h3 {
@@ -228,8 +240,8 @@
             background: rgba(251, 209, 162, 0.15);
             border: 2px solid rgba(251, 209, 162, 0.3);
             border-radius: 15px;
-            padding: 2rem;
-            margin: 2rem 0;
+            padding: 1rem;
+            margin: 1rem 0;
         }
 
         .recommendations h3 {
@@ -240,9 +252,9 @@
 
         .tip {
             background: rgba(255, 255, 255, 0.1);
-            padding: 1rem;
+            padding: 0.75rem;
             border-left: 4px solid #F79256;
-            margin: 1rem 0;
+            margin: 0.5rem 0;
             border-radius: 5px;
         }
 
@@ -433,6 +445,7 @@
                 <!-- Norwegian Dawn -->
                 <div class="cruise-card">
                     <div class="cruise-header">
+                        <div class="cruise-logo" style="background-image: url('https://www.ncl.com/sites/default/files/ncl-logo-white.svg')"></div>
                         <h3>Western Mediterranean - Barcelona</h3>
                         <p class="cruise-line">Norwegian Cruise Line - Norwegian Dawn</p>
                     </div>
@@ -472,9 +485,9 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image has-bg" data-label="Balcony Stateroom" style="background-image: url('https://www.ncl.com/sites/default/files/Dawn_Mini%20Suite%20w%20Balcony.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Bathroom & Shower" style="background-image: url('https://www.ncl.com/sites/default/files/Dawn_Bathroom.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Oceanview Room" style="background-image: url('https://www.ncl.com/sites/default/files/Dawn_Oceanview.jpg')"></div>
+                            <div class="ship-image has-bg" data-label="Mini Suite Balcony" style="background-image: url('https://media.norwegiancruiseline.com/images/2017-Ships/Norwegian-Dawn/staterooms/Dawn_Mini_Suite_with_Balcony_2017.jpg')"></div>
+                            <div class="ship-image has-bg" data-label="Suite Bathroom" style="background-image: url('https://media.norwegiancruiseline.com/images/2017-Ships/Norwegian-Dawn/staterooms/Dawn_Suite_Bathroom_2017.jpg')"></div>
+                            <div class="ship-image has-bg" data-label="Shower Area" style="background-image: url('https://media.norwegiancruiseline.com/images/2017-Ships/Norwegian-Dawn/staterooms/Dawn_Shower_Stall_2017.jpg')"></div>
                         </div>
                     </div>
                 </div>
@@ -482,6 +495,7 @@
                 <!-- Royal Caribbean Odyssey -->
                 <div class="cruise-card">
                     <div class="cruise-header">
+                        <div class="cruise-logo" style="background-image: url('https://www.royalcaribbean.com/content/dam/royal/global/icons/royal-caribbean-logo-white.svg')"></div>
                         <h3>Greek Isles Cruise</h3>
                         <p class="cruise-line">Royal Caribbean - Odyssey of the Seas</p>
                     </div>
@@ -522,9 +536,9 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image has-bg" data-label="Balcony Stateroom" style="background-image: url('https://www.royalcaribbean.com/content/dam/royal/ships-and-experience/ships/odyssey-of-the-seas/staterooms/odyssey-of-the-seas-ocean-view-balcony-stateroom.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Bathroom & Shower" style="background-image: url('https://www.royalcaribbean.com/content/dam/royal/ships-and-experience/ships/odyssey-of-the-seas/staterooms/odyssey-of-the-seas-stateroom-bathroom.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Suite Living Area" style="background-image: url('https://www.royalcaribbean.com/content/dam/royal/ships-and-experience/ships/odyssey-of-the-seas/staterooms/odyssey-of-the-seas-junior-suite.jpg')"></div>
+                            <div class="ship-image has-bg" data-label="Junior Suite" style="background-image: url('https://www.royalcaribbean.com/content/dam/royal/ships-and-experience/ships/odyssey-of-the-seas/staterooms/junior-suite-living-area.jpg')"></div>
+                            <div class="ship-image has-bg" data-label="Modern Bathroom" style="background-image: url('https://www.royalcaribbean.com/content/dam/royal/ships-and-experience/ships/odyssey-of-the-seas/staterooms/bathroom-modern-fixtures.jpg')"></div>
+                            <div class="ship-image has-bg" data-label="Glass Shower" style="background-image: url('https://www.royalcaribbean.com/content/dam/royal/ships-and-experience/ships/odyssey-of-the-seas/staterooms/shower-glass-enclosed.jpg')"></div>
                         </div>
                     </div>
                 </div>
@@ -532,6 +546,7 @@
                 <!-- Princess Enchanted -->
                 <div class="cruise-card">
                     <div class="cruise-header">
+                        <div class="cruise-logo" style="background-image: url('https://www.princess.com/images/shared/global/logos/princess-logo-white.svg')"></div>
                         <h3>Mediterranean & Aegean</h3>
                         <p class="cruise-line">Princess Cruises - Enchanted Princess</p>
                     </div>
@@ -571,9 +586,9 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image has-bg" data-label="Balcony Stateroom" style="background-image: url('https://www.princess.com/ships-and-experience/cruise-ships/en/ship-staterooms/enchanted-princess-staterooms/BA-Balcony-R701.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Bathroom & Shower" style="background-image: url('https://www.princess.com/ships-and-experience/cruise-ships/en/ship-staterooms/enchanted-princess-staterooms/BA-Bathroom.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Suite with Balcony" style="background-image: url('https://www.princess.com/ships-and-experience/cruise-ships/en/ship-staterooms/enchanted-princess-staterooms/S2-Mini-Suite.jpg')"></div>
+                            <div class="ship-image has-bg" data-label="Premium Balcony" style="background-image: url('https://www.princess.com/ships-and-experience/ships/enchanted-princess/staterooms/premium-balcony-deluxe.jpg')"></div>
+                            <div class="ship-image has-bg" data-label="Elegant Bathroom" style="background-image: url('https://www.princess.com/ships-and-experience/ships/enchanted-princess/staterooms/bathroom-premium.jpg')"></div>
+                            <div class="ship-image has-bg" data-label="Glass Shower" style="background-image: url('https://www.princess.com/ships-and-experience/ships/enchanted-princess/staterooms/shower-glass-modern.jpg')"></div>
                         </div>
                     </div>
                 </div>
@@ -581,6 +596,7 @@
                 <!-- Celebrity Ascent -->
                 <div class="cruise-card">
                     <div class="cruise-header">
+                        <div class="cruise-logo" style="background-image: url('https://www.celebritycruises.com/content/dam/celebrity/images/logos/celebrity-cruises-logo-white.svg')"></div>
                         <h3>Italy, Greece & Croatia</h3>
                         <p class="cruise-line">Celebrity Cruises - Celebrity Ascent</p>
                     </div>
@@ -621,9 +637,9 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image has-bg" data-label="Veranda Stateroom" style="background-image: url('https://www.celebritycruises.com/content/dam/celebrity/ship-images/ascent/staterooms/celebrity-ascent-veranda-stateroom.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Modern Bathroom" style="background-image: url('https://www.celebritycruises.com/content/dam/celebrity/ship-images/ascent/staterooms/celebrity-ascent-bathroom.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Aqua Class Suite" style="background-image: url('https://www.celebritycruises.com/content/dam/celebrity/ship-images/ascent/staterooms/celebrity-ascent-aqua-class.jpg')"></div>
+                            <div class="ship-image has-bg" data-label="Aqua Class Veranda" style="background-image: url('https://www.celebritycruises.com/content/dam/celebrity/ship-images/ascent/staterooms/aqua-class-veranda.jpg')"></div>
+                            <div class="ship-image has-bg" data-label="Spa-Style Bathroom" style="background-image: url('https://www.celebritycruises.com/content/dam/celebrity/ship-images/ascent/staterooms/bathroom-spa-luxury.jpg')"></div>
+                            <div class="ship-image has-bg" data-label="Rainfall Shower" style="background-image: url('https://www.celebritycruises.com/content/dam/celebrity/ship-images/ascent/staterooms/shower-rainfall-luxury.jpg')"></div>
                         </div>
                     </div>
                 </div>
@@ -631,6 +647,7 @@
                 <!-- Oceania Nautica -->
                 <div class="cruise-card">
                     <div class="cruise-header">
+                        <div class="cruise-logo" style="background-image: url('https://www.oceaniacruises.com/sites/default/files/oceania-cruises-logo-white.svg')"></div>
                         <h3>Eastern Mediterranean Luxury</h3>
                         <p class="cruise-line">Oceania Cruises - Nautica</p>
                     </div>
@@ -671,9 +688,9 @@
                         </div>
                         
                         <div class="ship-gallery">
-                            <div class="ship-image has-bg" data-label="Veranda Stateroom" style="background-image: url('https://www.oceaniacruises.com/sites/default/files/oceania-cruises-nautica-veranda-stateroom.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Marble Bathroom" style="background-image: url('https://www.oceaniacruises.com/sites/default/files/oceania-cruises-nautica-bathroom.jpg')"></div>
-                            <div class="ship-image has-bg" data-label="Penthouse Suite" style="background-image: url('https://www.oceaniacruises.com/sites/default/files/oceania-cruises-nautica-penthouse-suite.jpg')"></div>
+                            <div class="ship-image has-bg" data-label="Concierge Level Veranda" style="background-image: url('https://www.oceaniacruises.com/sites/default/files/nautica-concierge-level-veranda.jpg')"></div>
+                            <div class="ship-image has-bg" data-label="Marble Bathroom" style="background-image: url('https://www.oceaniacruises.com/sites/default/files/nautica-bathroom-marble-luxury.jpg')"></div>
+                            <div class="ship-image has-bg" data-label="Oversized Shower" style="background-image: url('https://www.oceaniacruises.com/sites/default/files/nautica-shower-marble-premium.jpg')"></div>
                         </div>
                     </div>
                 </div>
